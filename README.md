@@ -1,7 +1,8 @@
 # Container Vessel Port Dwell Time Prediction 
 
-SIADS696 Milestone II Project<BR>University of Michigan MADS 
+SIADS696 Milestone II Project<BR>University of Michigan MADS<BR>Authors: Cliff Gong, Gen Ho, Xinqian Zhai
 
+  
 ## Introduction
 
 The global supply chain was thrown out of balance by the pandemic, leading to a backlog of cargo and port congestion. This has had worldwide impacts but is especially severe in the US, with an all-time high of 109 container vessels off Port of Los Angeles and Long Beach (LA/LB) on Jan 9 2022 and berthing times taking up to 28 days. Therefore, the Estimated Time of Arrival (ETA) provided by ocean carriers is not able to reflect the extra waiting time for vessels to be berthed.
