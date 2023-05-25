@@ -8,7 +8,7 @@ The global supply chain was thrown out of balance by the pandemic, leading to a 
 <BR><BR>
 This project aimed to develop a machine-learning model that can predict the dwell time for container vessels to berth. With better predictions from this model, ocean carriers could provide more accurate Estimated Time of Arrival (ETA) information so that downstream logistic companies can have better planning and execution. 
 
---------------
+
 ## Data Source and Scope
 
 <img src="Images/How_the_targert_label(dwell_time)_is_generated.png" alt="geo_map" width="600"/>
@@ -18,7 +18,7 @@ This project aimed to develop a machine-learning model that can predict the dwel
 
 **Vessel Particular Data** was collected via web scraping based on the vessel identifier available in the AIS Data, containing the basic information about vessels, such as vessel identifier, vessel name, width, length, deadweight tonnage (dwt), vessel type, owner, operator, etc.
 
---------------
+
 ## Feature Engineering Pipline
 
 1. **Filter AIS Data** - apply geofence to filter raw AIS data. We only required data in the port area. Data size reduced from 620GB to 6GB
@@ -31,7 +31,7 @@ This project aimed to develop a machine-learning model that can predict the dwel
 
 The final output dataset is distilled to 1,653 records.
 
---------------
+
 ## Unsupervised Learning
 
 ### Motivation 
@@ -47,7 +47,7 @@ Applied and compared three different stratigies for dimension reduction and thre
 
 Based on the goals of unsupervised learning, we identified several important features that facilitate supervised model training and discovered groups of dwell time patterns along with other interesting insights (*find details in the project report*).
 
---------------
+
 ## Supervised Learning
 
 ### Motivation
@@ -70,7 +70,7 @@ Overall, The CatBoost model has achieved the lowest MAE.
 
 Around 64% of errors are within plus or minus 1 day, while around 72% of errors are within plus or minus 2 days, and 82% are within plus or minus 3 days (Chart above).  For the downstream logistic service providers in preparing containers pickup, this range of error sounds acceptable.
 
---------------
+
 ## Further Analysis
 
 ### Feature Analysis
@@ -94,7 +94,7 @@ To understand whether extra efforts are needed for collecting more training data
 
 In addition, we performed a sensitivity analysis to diagnose how sensitive the hyperparameters are, and the results showed that, overall, our model generalizes well given new test data.
 
---------------
+
 ## Error Analysis
 
 To understand what failures our model has made in order to gain insights on how we can improve our solution, we conducted an Error Analysis.
