@@ -11,7 +11,7 @@ This project aimed to develop a machine-learning model that can predict the dwel
 --------------
 ## Data Source and Scope
 
-<img src="Images/How_the_targert_label(dwell_time)_is_generated.png" alt="geo_map" width="600"/>
+<img src="Images/How_the_targert_label(dwell_time)_is_generated.png" alt="geo_map" width="800"/>
 <!-- ![How_the_targert_label(dwell_time)_is_generated](Images/How_the_targert_label(dwell_time)_is_generated.png) -->
 
 **AIS data** is a stream of data with a huge volume, containing vessel information that can be used to trace a vessel's trajectory. The project focused on 6 container terminals in the Port of Long Beach and applied geofence over the data to detect events such as when a vessel arrived at the port area and berthed at a terminal. This was used to calculate dwell time to berth and other useful features for model building.
