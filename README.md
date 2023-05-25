@@ -42,7 +42,7 @@ Given the mixed type of high dimensional data, we transformed the data and appli
 
 Applied and compared three different stratigies for dimension reduction and three algorithms for clustering: Factor Analysis of Mixed Data (FAMD), Principal Component Analysis (PCA), Uniform Manifold Approximation and Projection (UMAP), Agglomerative Clustering, Kmeans, and Density-Based Spatial Clustering of Applications with Noise (DBSCAN). In general, UMAP performed the best, and all the cluster algorithms did pretty well in identifying clusters. 
 
-<img src="Images/UMAP_result_analysis.png" alt="UMAP_result_analysis" width="800"/>
+<img src="Images/UMAP_result_analysis.png" alt="UMAP_result_analysis" width="600"/>
 <!-- ![UMAP_result_analysis](Images/UMAP_result_analysis.png) -->
 
 Based on the goals of unsupervised learning, we identified several important features that facilitate supervised model training and discovered groups of dwell time patterns along with other interesting insights (*find details in the project report*).
@@ -74,21 +74,21 @@ Around 64% of errors are within plus or minus 1 day, while around 72% of errors 
 
 ### Feature Analysis
 
-<img src="Images/feature_analysis.png" alt="feature_analysis" width="800"/>
+<img src="Images/feature_analysis.png" alt="feature_analysis" width="600"/>
 <!-- ![feature_analysis](Images/feature_analysis.png) -->
 
 From the feature analysis, we observed the top 4 important features were avg_dwell_at_target_terminal, num_of_vessel_in_port, vessel_operator, and target_terminal.
 
 ### Learning Curve Analysis 
   
-<img src="Images/learning_curve.png" alt="learning_curve" width="800"/>
+<img src="Images/learning_curve.png" alt="learning_curve" width="600"/>
 <!-- ![learning_curve](Images/learning_curve.png) -->
 
 To understand whether extra efforts are needed for collecting more training data, We’ve conducted a Learning Curve Analysis, and the result showed that the 2.5 years of AIS data we have used is enough for this CatBoost model,no need to spend extra effort in collecting more sample data.
 
 ### Sensitivity Analysis
 
-<img src="Images/sensitivity_analysis.png" alt="sensitivity_analysis" width="800"/>
+<img src="Images/sensitivity_analysis.png" alt="sensitivity_analysis" width="600"/>
 <!-- ![sensitivity_analysis](Images/sensitivity_analysis.png) -->
 
 In addition, we performed a sensitivity analysis to diagnose how sensitive the hyperparameters are, and the results showed that, overall, our model generalizes well given new test data.
