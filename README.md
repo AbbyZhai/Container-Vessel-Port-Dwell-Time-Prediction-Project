@@ -11,7 +11,7 @@ This project aimed to develop a machine-learning model that can predict the dwel
 --------------
 ## Data Source and Scope
 
-<img src="Images/How_the_targert_label(dwell_time)_is_generated.png" alt="geo_map" width="100"/>
+<img src="Images/How_the_targert_label(dwell_time)_is_generated.png" alt="geo_map" width="500"/>
 <!-- ![How_the_targert_label(dwell_time)_is_generated](Images/How_the_targert_label(dwell_time)_is_generated.png) -->
 
 **AIS data** is a stream of data with a huge volume, containing vessel information that can be used to trace a vessel's trajectory. The project focused on 6 container terminals in the Port of Long Beach and applied geofence over the data to detect events such as when a vessel arrived at the port area and berthed at a terminal. This was used to calculate dwell time to berth and other useful features for model building.
@@ -42,7 +42,7 @@ Given the mixed type of high dimensional data, we transformed the data and appli
 
 Applied and compared three different stratigies for dimension reduction and three algorithms for clustering: Factor Analysis of Mixed Data (FAMD), Principal Component Analysis (PCA), Uniform Manifold Approximation and Projection (UMAP), Agglomerative Clustering, Kmeans, and Density-Based Spatial Clustering of Applications with Noise (DBSCAN). In general, UMAP performed the best, and all the cluster algorithms did pretty well in identifying clusters. 
 
-<img src="Images/UMAP_result_analysis.png" alt="UMAP_result_analysis" width="150"/>
+<img src="Images/UMAP_result_analysis.png" alt="UMAP_result_analysis" width="600"/>
 <!-- ![UMAP_result_analysis](Images/UMAP_result_analysis.png) -->
 
 Based on the goals of unsupervised learning, we identified several important features that facilitate supervised model training and discovered groups of dwell time patterns along with other interesting insights (*find details in the project report*).
@@ -64,7 +64,7 @@ For model training, We used 10-fold cross validation over the training dataset f
 
 Overall, The CatBoost model has achieved the lowest MAE. 
   
-<img src="Images/predict_error_bar_chart.png" alt="predict_error_bar_chart" width="200"/>
+<img src="Images/predict_error_bar_chart.png" alt="predict_error_bar_chart" width="800"/>
 <!-- ![predict_error_bar_chart](Images/predict_error_bar_chart.png) -->
 
 Around 64% of errors are within plus or minus 1 day, while around 72% of errors are within plus or minus 2 days, and 82% are within plus or minus 3 days (Chart above).  For the downstream logistic service providers in preparing containers pickup, this range of error sounds acceptable.
@@ -74,21 +74,21 @@ Around 64% of errors are within plus or minus 1 day, while around 72% of errors 
 
 ### Feature Analysis
 
-<img src="Images/feature_analysis.png" alt="feature_analysis" width="150"/>
+<img src="Images/feature_analysis.png" alt="feature_analysis" width="850"/>
 <!-- ![feature_analysis](Images/feature_analysis.png) -->
 
 From the feature analysis, we observed the top 4 important features were avg_dwell_at_target_terminal, num_of_vessel_in_port, vessel_operator, and target_terminal.
 
 ### Learning Curve Analysis 
   
-<img src="Images/learning_curve.png" alt="learning_curve" width="150"/>
+<img src="Images/learning_curve.png" alt="learning_curve" width="950"/>
 <!-- ![learning_curve](Images/learning_curve.png) -->
 
 To understand whether extra efforts are needed for collecting more training data, We’ve conducted a Learning Curve Analysis, and the result showed that the 2.5 years of AIS data we have used is enough for this CatBoost model,no need to spend extra effort in collecting more sample data.
 
 ### Sensitivity Analysis
 
-<img src="Images/sensitivity_analysis.png" alt="sensitivity_analysis" width="150"/>
+<img src="Images/sensitivity_analysis.png" alt="sensitivity_analysis" width="850"/>
 <!-- ![sensitivity_analysis](Images/sensitivity_analysis.png) -->
 
 In addition, we performed a sensitivity analysis to diagnose how sensitive the hyperparameters are, and the results showed that, overall, our model generalizes well given new test data.
