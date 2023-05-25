@@ -42,7 +42,7 @@ Given the mixed type of high dimensional data, we transformed the data and appli
 
 Applied and compared three different stratigies for dimension reduction and three algorithms for clustering: Factor Analysis of Mixed Data (FAMD), Principal Component Analysis (PCA), Uniform Manifold Approximation and Projection (UMAP), Agglomerative Clustering, Kmeans, and Density-Based Spatial Clustering of Applications with Noise (DBSCAN). In general, UMAP performed the best, and all the cluster algorithms did pretty well in identifying clusters. 
 
-<img src="Images/UMAP_result_analysis.png" alt="UMAP_result_analysis" width="600"/>
+<img src="Images/UMAP_result_analysis.png" alt="UMAP_result_analysis" width="800"/>
 <!-- ![UMAP_result_analysis](Images/UMAP_result_analysis.png) -->
 
 Based on the goals of unsupervised learning, we identified several important features that facilitate supervised model training and discovered groups of dwell time patterns along with other interesting insights (*find details in the project report*).
@@ -60,7 +60,8 @@ We've built the final model over three different types of algorithms: a)Linear R
 
 For model training, We used 10-fold cross validation over the training dataset for hyperparameters tuning and trained the models with the best hyperparameters. The table below is the comparison of each model measured using the Mean Absolute Error (MAE).
 
-![model_evaluation](Images/model_evaluation.png)
+<img src="Images/model_evaluation.png" alt="model_evaluation" width="800"/>
+<!-- ![model_evaluation](Images/model_evaluation.png) -->
 
 Overall, The CatBoost model has achieved the lowest MAE. 
   
