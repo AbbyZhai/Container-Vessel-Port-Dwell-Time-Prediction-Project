@@ -104,7 +104,7 @@ We found that avg_dwell_at_target_terminal and num_of_vessel_in_port features we
 --------------
 ## A detailed report on our project can be found here:
 
-[SIAD 696 Milestone2 Project Report - Container Vessel Port Dwell Time Prediction](Project Report Updated.pdf)
+![SIAD 696 Milestone2 Project Report - Container Vessel Port Dwell Time Prediction](Project Report Updated.pdf)
 
 
 ## License
