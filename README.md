@@ -20,7 +20,7 @@ This project aimed to develop a machine-learning model that can predict the dwel
 **Vessel Particular Data** was collected via web scraping based on the vessel identifier available in the AIS Data, containing the basic information about vessels, such as vessel identifier, vessel name, width, length, deadweight tonnage (dwt), vessel type, owner, operator, etc.
 
 
-## Feature Engineering Pipline
+## Feature Engineering Pipeline
 
 1. **Filter AIS Data** - apply geofence to filter raw AIS data. We only required data in the port area. Data size reduced from 620GB to 6GB
 2. **Resample AIS data** - resample AIS data every 30 min interval. Data size reduced from 6GB to 480MB
@@ -37,11 +37,11 @@ The final output dataset is distilled to 1,653 records.
 
 ### Motivation 
 
-Given the mixed type of high dimensional data, we transformed the data and applied dimension reduction in order to visualize the dataset for insight discovery, which includes: a)identifying important features; b)discovery groups of dwell time patterns; and c)other insights that are hard to see. These results can potentially assist in the supervised learning phase.
+Given the mixed type of high dimensional data, we transformed the data and applied dimension reduction to visualize the dataset for insight discovery, which includes: a)identifying important features; b)discovery groups of dwell time patterns; and c)other insights that are hard to see. These results can potentially assist in the supervised learning phase.
 
 ### Method & Evaluation
 
-Applied and compared three different stratigies for dimension reduction and three algorithms for clustering: Factor Analysis of Mixed Data (FAMD), Principal Component Analysis (PCA), Uniform Manifold Approximation and Projection (UMAP), Agglomerative Clustering, Kmeans, and Density-Based Spatial Clustering of Applications with Noise (DBSCAN). In general, UMAP performed the best, and all the cluster algorithms did pretty well in identifying clusters. 
+Applied and compared three different strategies for dimension reduction and three algorithms for clustering: Factor Analysis of Mixed Data (FAMD), Principal Component Analysis (PCA), Uniform Manifold Approximation and Projection (UMAP), Agglomerative Clustering, Kmeans, and Density-Based Spatial Clustering of Applications with Noise (DBSCAN). In general, UMAP performed the best, and all the cluster algorithms did pretty well in identifying clusters. 
 
 <img src="Images/UMAP_result_analysis.png" alt="UMAP_result_analysis" width="800"/>
 <!-- ![UMAP_result_analysis](Images/UMAP_result_analysis.png) -->
@@ -59,7 +59,7 @@ This part focused on develop a machine learning model to predit the dwell time t
 
 We've built the final model over three different types of algorithms: a)Linear Regression; b)Random Forest Regressor; and c)CatBoost Regressor and selected the most accurate one for detailed analysis.
 
-For model training, We used 10-fold cross validation over the training dataset for hyperparameters tuning and trained the models with the best hyperparameters. The table below is the comparison of each model measured using the Mean Absolute Error (MAE).
+For model training, We used 10-fold cross-validation over the training dataset for hyperparameters tuning and trained the models with the best hyperparameters. The table below is the comparison of each model measured using the Mean Absolute Error (MAE).
 
 <img src="Images/model_evaluation.png" alt="model_evaluation" width="800"/>
 <!-- ![model_evaluation](Images/model_evaluation.png) -->
@@ -69,7 +69,7 @@ Overall, The CatBoost model has achieved the lowest MAE.
 <img src="Images/predict_error_bar_chart.png" alt="predict_error_bar_chart" width="800"/>
 <!-- ![predict_error_bar_chart](Images/predict_error_bar_chart.png) -->
 
-Around 64% of errors are within plus or minus 1 day, while around 72% of errors are within plus or minus 2 days, and 82% are within plus or minus 3 days (Chart above).  For the downstream logistic service providers in preparing containers pickup, this range of error sounds acceptable.
+Around 64% of errors are within plus or minus 1 day, while around 72% of errors are within plus or minus 2 days, and 82% are within plus or minus 3 days (Chart above).  For the downstream logistic service providers in preparing container pickup, this range of error sounds acceptable.
 
 
 ## Further Analysis
@@ -86,21 +86,21 @@ From the feature analysis, we observed the top 4 important features were avg_dwe
 <img src="Images/learning_curve.png" alt="learning_curve" width="600"/>
 <!-- ![learning_curve](Images/learning_curve.png) -->
 
-To understand whether extra efforts are needed for collecting more training data, We’ve conducted a Learning Curve Analysis, and the result showed that the 2.5 years of AIS data we have used is enough for this CatBoost model,no need to spend extra effort in collecting more sample data.
+To understand whether additional effort is required to collect more training data, we performed a Learning Curve Analysis and the results showed that 2.5 years of AIS data (filtered from the original 6.4 million records to 1,653 records) is sufficient for training the CatBoost model, No need to spend extra effort to collect more sample data.
 
 ### Sensitivity Analysis
 
 <img src="Images/sensitivity_analysis.png" alt="sensitivity_analysis" width="600"/>
 <!-- ![sensitivity_analysis](Images/sensitivity_analysis.png) -->
 
-In addition, we performed a sensitivity analysis to diagnose how sensitive the hyperparameters are, and the results showed that, overall, our model generalizes well given new test data.
+In addition, we performed a sensitivity analysis to see how well the model was generalized by diagnosing model hyperparameters, and the results showed that, overall, our model generalizes well given new test data.
 
 
 ## Error Analysis
 
 To understand what failures our model has made in order to gain insights on how we can improve our solution, we conducted an Error Analysis.
 
-We found that avg_dwell_at_target_terminal and num_of_vessel_in_port features were not able to catch up with the extended long dwell time during an abnormal period (Oct to Dec 2021). Second, num_of_vessel_in_port feature was capped at around 180 despite a drastic increase in dwell time due to its maximum capacity. Additionally, we also identified that avg_dwell_at_target_terminal feature was not able to accurately capture changes in actual dwell time within a 14 days time window. With limited time and computational power, we didn't search AIS data for other potential waiting areas for overflowed vessels outside the designated port areas, which may affect the accuracy of results when ports reached its maximum capacity during a highly congested situation. 
+We found that avg_dwell_at_target_terminal and num_of_vessel_in_port features were not able to catch up with the extended long dwell time during an abnormal period (Oct to Dec 2021). Second, the num_of_vessel_in_port feature was capped at around 180 despite a drastic increase in dwell time due to its maximum capacity. Additionally, we also identified that the avg_dwell_at_target_terminal feature was not able to accurately capture changes in actual dwell time within a 14-day time window. With limited time and computational power, we didn't search AIS data for other potential waiting areas for overflowed vessels outside the designated port areas, which may affect the accuracy of results when ports reach their maximum capacity during a highly congested situation. 
 
 --------------
 ## A detailed report on our project can be found here:
@@ -110,4 +110,4 @@ We found that avg_dwell_at_target_terminal and num_of_vessel_in_port features we
 
 ## License
 
-All data sources and python libraries used are open source to the best of our knowledge.
+All data sources and Python libraries used are open source to the best of our knowledge.
